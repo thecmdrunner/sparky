@@ -9,16 +9,27 @@ import smtplib
 from PyDictionary import PyDictionary
 from playsound import playsound
 
-# Fill your own details
 
-yourName = 'Pranav' # put your name here
-botMail = '' # Put your burner email address here, after turning on external access. 
-botMailPassword = '' 
-
-# Dont touch
 to = ' ' #email address to send email to
 doneListening = './audio/done_listening.wav'
 dictionary = PyDictionary() #dictionary 
+
+
+# Fill your own details
+
+yourName = 'Pranav' # enter your name 
+yourMail = '' # enter your mail
+botMail = '' # Put your burner email address here, and turn on external access. 
+botMailPassword = '' 
+
+
+# Functions
+
+def beep():
+    playsound(doneListening)
+
+
+## TODO: alert and error beeps
 
 
 def say(words):
@@ -27,16 +38,16 @@ def say(words):
     playsound('response.mp3')
     os.remove('response.mp3')
 
-def printandsay(words):
+def printnsay(words):
     print(words)
     say(words)
 
-def greeting(USER):
-    printandsay('')
+def greeting(name):
+    printnsay('Hello there! What would you like me to do?')
     
 def exit_alert():
-    say("Due to the pandemic of Corona Virus, I insist you to not use me. Exiting....")
-    print("Due to the pandemic of Corona Virus, I insist you to not use me. Exiting....")
+    exitmsg='Bye for now, tell me when you need something.'
+    printnsay(exitmsg)
     exit()
 
 def get_time():
@@ -44,11 +55,11 @@ def get_time():
     hours = (now.strftime("%H"))
     minutes = (now.strftime("%M"))
     seconds = (now.strftime("%S"))
-    string_time = ("it's " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds")
+    string_time = ("it's " +hours+ " hours, " +minutes+ " minutes, and " +seconds+ " seconds")
 
 def takeCommand():
 
-    #It takes microphone input from the user and returns a string output hehe
+    # take microphone input from the user and returns a string output
 
     print('Now say something')
 
@@ -70,13 +81,60 @@ def takeCommand():
     return query
 
 
-def sendEmail(to, content):
+def mailsetup(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.login(botMail, botMailPassword)
     server.sendmail(botMail, to, content)
     server.close()
+
+
+def sendEmail():
+
+    ## TODO: Put subject in email
+
+    if botMailPassword=='':
+        printnsay('You need to complete the email setup first.')
+        exit
+
+    beep()
+    try:
+        printnsay('whom would you like to send?')
+        beep()
+
+        recipientName = str.lower(takeCommand())
+               
+        if recipientName == yourName:
+            to = yourMail
+
+        elif recipientName == "PERSON 1":
+            to = "THEIR EMAIL"
+
+        elif recipientName == "PERSON 2":
+            to = "THEIR EMAIL"
+
+        elif recipientName == "PERSON 3":
+            to = "THEIR EMAIL"         
+              
+        beep()
+        printnsay('What would you like to send?')
+        beep()
+        message = takeCommand()
+        content = str(message + " P.S. This mail was sent by Edith, requested by user "+yourName+".")  
+
+        mailsetup(to, content)
+        beep()
+        emailSentResponse = "Your mail has been sent!"
+        printnsay(emailSentResponse)
+        beep()
+               
+
+    except Exception as e:
+        beep()
+        print(e)
+        say("Sorry "+yourName+", email is currently facing some issues. Please wait for a while and try again later.")    
+
 
 def respond(query):
 
@@ -89,69 +147,50 @@ def respond(query):
         
         elif 'time' in query:
             get_time()
-            playsound(doneListening)
+            beep()
             printnsay(string_time)
 
         elif 'what is my name' in query:
-            playsound(doneListening)
-            printnsay1('Your name is '+yourName+', and I hope you dont forget it again... haahaa')
+            beep()
+            printnsay('Your name is '+yourName+', and I hope you dont forget it again... haahaa')
 
         elif 'send an email' in query:
 
-            ## Put subject in email
+            sendmail()
 
-            playsound(doneListening)
-            try:
-                printnsay('whom would you like to send?')
-                playsound(doneListening)
-                
-                recipientName = str.lower(takeCommand())
-                
-                if recipientName == "ME":
-                    to = "MY EMAIL"
-
-                elif recipientName == "PERSON 2":
-                    to = "THEIR EMAIL"         
-      
-                
-                printnsay('What would you like to send?')
-                playsound(doneListening)
-                message = takeCommand()
-                content = str(message + " P.S. This mail was sent by Edith, requested by user "+yourName+".")  
-
-                sendEmail(to, content)
-                emailSentResponse = "Your mail has been sent!"
-                playsound(doneListening)
-                printnsay(emailSentResponse)
-                
-
-            except Exception as e:
-                playsound('done_listening.wav')
-                print(e)
-                say("Sorry "+yourName+", email is currently facing some issues. Please wait for a while and try again later.")    
-
-
-        elif ('bye' or 'shut down' or 'shutdown') in query: 
-            playsound(doneListening)
+        elif ('bye' or 'exit' or 'shut down' or 'shutdown') in query: 
+            beep()
             printnsay("Turning off!")
             exit_alert()
 
     except Exception as e:
-        playsound(doneListening)
-        say("i am sorry, i didn't get what you said.")
+        beep()
+        say("sorry, i didn't get what you said.")
         print('\nPlease say again...\n')
 
 if __name__ == "__main__":
    
     #hello()
     #exit()
-    playsound(doneListening)
-    greeting(yourName)
-    while True:
-    # if 1:
-     playsound(doneListening)
 
-     query = takeCommand()
-     respond(query)
+    beep()
+
+    hour = int(datetime.datetime.now().hour)
+    if hour>=3 and hour<12:
+        dayphase='morning'
+    
+    elif hour>=12 and hour<16:
+        dayphase='afternoon'
+
+    else:
+        dayphase='evening'
+
+    printnsay('Good '+dayphase+', thanks for using assistant.')
+    greeting(yourName)
+
+    while True:
+        beep()
+        query = takeCommand()
+        respond(query)
 
      

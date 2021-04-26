@@ -25,6 +25,18 @@ Install `espeak`
 
 ### Email is currently setup for GMAIL.
 
+Enter names and email addresses as you wish.
+
+```python
+elif recipientName == "PERSON 1":
+    to = "THEIR EMAIL"
+
+elif recipientName == "PERSON 2":
+    to = "THEIR EMAIL"
+
+elif recipientName == "PERSON 3":
+    to = "THEIR EMAIL"     
+```
 
 
 ### Documentation pending
