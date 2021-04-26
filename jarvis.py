@@ -1,5 +1,5 @@
 import pyttsx3 
-import speech_recognition as sr # i chose sr because lol its so tiny name
+import speech_recognition as sr
 import datetime
 from time import ctime
 import wikipedia 
@@ -7,7 +7,6 @@ import webbrowser # opens in internet explorer by default sorry :p
 import os
 import smtplib
 from PyDictionary import PyDictionary
-
 
 
 engine = pyttsx3.init('sapi5')
