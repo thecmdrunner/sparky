@@ -56,30 +56,7 @@ def get_time():
     minutes = (now.strftime("%M"))
     seconds = (now.strftime("%S"))
     string_time = ("it's " +hours+ " hours, " +minutes+ " minutes, and " +seconds+ " seconds")
-
-def takeCommand():
-
-    # take microphone input from the user and returns a string output
-
-    print('Now say something')
-
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening for command...")
-        recognizer.pause_threshold = 1.5
-        audio = recognizer.listen(source)
-
-    try:
-        print("Recognizing...")    
-        query = recognizer.recognize_google(audio, language='en-in')
-        print("You said: ",query,"\n")
-
-    except Exception :
-        # print(e)    
-        print("Say that again please...")  
-        return "None"
-    return query
-
+    return string_time
 
 def mailsetup(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -96,7 +73,7 @@ def sendEmail():
 
     if botMailPassword=='':
         printnsay('You need to complete the email setup first.')
-        exit
+        exit()
 
     beep()
     try:
@@ -136,6 +113,31 @@ def sendEmail():
         say("Sorry "+yourName+", email is currently facing some issues. Please wait for a while and try again later.")    
 
 
+def takeCommand():
+
+    # take microphone input from the user and returns a string output
+
+    print('Now say something')
+
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening for command...")
+        recognizer.pause_threshold = 1.5
+        audio = recognizer.listen(source)
+
+    try:
+        print("Recognizing...")    
+        audiowords = recognizer.recognize_google(audio, language='en-in')
+        print("You said: ",audiowords,"\n")
+
+    except Exception :
+        # print(e)    
+        print("Say that again please...")  
+        return "None"
+
+    return audiowords
+
+
 def respond(query):
 
     try:
@@ -146,17 +148,16 @@ def respond(query):
             return 0
         
         elif 'time' in query:
-            get_time()
+            current_time = get_time()
             beep()
-            printnsay(string_time)
+            printnsay(current_time)
 
         elif 'what is my name' in query:
             beep()
             printnsay('Your name is '+yourName+', and I hope you dont forget it again... haahaa')
 
         elif 'send an email' in query:
-
-            sendmail()
+            sendEmail()
 
         elif ('bye' or 'exit' or 'shut down' or 'shutdown') in query: 
             beep()
@@ -190,7 +191,5 @@ if __name__ == "__main__":
 
     while True:
         beep()
-        query = takeCommand()
-        respond(query)
-
-     
+        order = takeCommand()
+        respond(order)
