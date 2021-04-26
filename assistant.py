@@ -20,7 +20,7 @@ dictionary = PyDictionary() #dictionary
 yourName = 'Pranav' # enter your name 
 yourMail = '' # enter your mail
 botMail = '' # Put your burner email address here, and turn on external access. 
-botMailPassword = '' 
+botMailPassword = '' # create a secure password
 
 
 # Functions

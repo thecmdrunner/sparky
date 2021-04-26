@@ -23,7 +23,24 @@ python3 assistant.py
 Install `espeak`
 
 
-### Email is currently setup for GMAIL.
+#### Enter variables for personalization (Optional)
+
+```python
+yourName = '' # enter your name 
+yourMail = '' # enter your email address
+```
+
+### Sending Email 
+
+Email is currently setup for GMAIL.
+
+You need to enter credentials if you want to be able to send emails.
+
+```python
+botMail = '' # Put your burner email address here, and turn on external access. 
+
+botMailPassword = '' # create a secure password
+```
 
 Enter names and email addresses as you wish.
 
