@@ -17,7 +17,7 @@ dictionary = PyDictionary() #dictionary
 
 # Fill your own details
 
-yourName = 'Pranav' # enter your name 
+yourName = 'Master' # enter your name 
 yourMail = '' # enter your mail
 botMail = '' # Put your burner email address here, and turn on external access. 
 botMailPassword = '' # create a secure password
@@ -43,7 +43,7 @@ def printnsay(words):
     say(words)
 
 def greeting(name):
-    printnsay('Hello there! What would you like me to do?')
+    printnsay('Hello, I am sparky! What would you like me to do?')
     
 def exit_alert():
     exitmsg='Bye for now, tell me when you need something.'
@@ -98,7 +98,7 @@ def sendEmail():
         printnsay('What would you like to send?')
         beep()
         message = takeCommand()
-        content = str(message + " P.S. This mail was sent by Edith, requested by user "+yourName+".")  
+        content = str(message + " P.S. This mail was sent by Sparky, requested by user "+yourName+".")  
 
         mailsetup(to, content)
         beep()
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     else:
         dayphase='evening'
 
-    printnsay('Good '+dayphase+', thanks for using assistant.')
+    printnsay('Good '+dayphase+', thanks for using sparky!')
     greeting(yourName)
 
     while True:
