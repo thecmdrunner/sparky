@@ -1,8 +1,8 @@
-# 🤖 Assistant
+# 🤖 Sparky
 
 ### ❗ Documentation pending
 
-Open source Voice Assistant, alternatives to Google Assistant and Alexa (oh Siri too btw).
+Sparky is an Open source Voice Assistant, alternatives to Google Assistant and Alexa (oh Siri too btw).
 
 Planning to have integration with Home Assistant which allows the operation of many already existing smart home devices.
 
@@ -14,10 +14,10 @@ Planning to have integration with Home Assistant which allows the operation of m
 pip3 install -r requirements.txt
 ```
 
-### Run `assistant.py`
+### Run `sparky.py`
 
 ```bash
-python3 assistant.py
+python3 sparky.py
 ```
 
 ### On Linux:
