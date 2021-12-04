@@ -6,6 +6,10 @@ Sparky is an Open source Voice Assistant, alternatives to Google Assistant and A
 
 Planning to have integration with Home Assistant which allows the operation of many already existing smart home devices.
 
+## TODO
+
+Implement gTTS alternatives: https://www.youtube.com/watch?v=Ju_X11JyRSE
+
 ## How to use
 
 ### Install dependencies
