@@ -66,8 +66,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('jarvismate1806@gmail.com', 'kchsCA@8^W1i')
-    server.sendmail('jarvismate1806@gmail.com', to, content)
+    server.login('mail', 'pass')
+    server.sendmail('mail', to, content)
     server.close()
 
 
@@ -150,21 +150,8 @@ if __name__ == "__main__":
                 recipientName = str.lower(takeCommand())
                 
                 if recipientName == "pranav":
-                    to = "pranavkulkarni195@gmail.com"
-                    
-                elif recipientName == "sakshi":
-                    to = "sakshijoshi250402@gmail.com"  
-                    
-                elif recipientName == "dad":
-                    to = "qualityexcel2004@gmail.com"         
-                       
-                elif recipientName == "omkar":
-                    to = "shindeo796@gmail.com"
-                    
-                elif recipientName == "prince":
-                    to = "princepranav2002@gmail.com"    
-                    
-      
+                    to = "me@gmail.com"
+               
                 
                 print('What would you like to send?')
                 say('What would you like to send?')
@@ -210,13 +197,11 @@ if __name__ == "__main__":
         elif "where is" in query:
             query= query.split(" ")
             location = query[2]
-            say("Hold on Pranav, I will show you where " + location + " is.")
+            say("Hold on, I will show you where " + location + " is.")
             webbrowser.get(chrome_path).open_new_tab("https://www.google.com/maps/place/" + location + "/&amp;")
 
         elif "tell me time" in query:
             say(ctime())
-        
-            
 
         elif 'bye' in query:        
             exit()
