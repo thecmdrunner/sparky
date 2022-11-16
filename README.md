@@ -1,14 +1,19 @@
-# 🤖 Sparky
+# 🤖 Sparky | PROJECT STATUS: EXPERIMENTAL
 
-### ❗ Documentation pending
+## Documentation pending!
 
 Sparky is an Open source Voice Assistant, alternatives to Google Assistant and Alexa (oh Siri too btw).
 
 Planning to have integration with Home Assistant which allows the operation of many already existing smart home devices.
 
 ## TODO
-
-Implement gTTS alternatives: https://www.youtube.com/watch?v=Ju_X11JyRSE
+- Documentation
+- Rewrite without legacy stuff
+- Build and package via:
+    - Flatpak
+    - Snap
+    - AppImage?
+- Implement [gTTS alternatives](https://www.youtube.com/watch?v=Ju_X11JyRSE)?
 
 ## How to use
 
