@@ -13,7 +13,7 @@ Planning to have integration with Home Assistant which allows the operation of m
     - Flatpak
     - Snap
     - AppImage?
-- Implement [gTTS alternatives](https://www.youtube.com/watch?v=Ju_X11JyRSE)?
+- Implement [gTTS alternatives](https://www.youtube.com/watch?v=Ju_X11JyRSE)? Like [Mycroft Mimic 3](https://youtu.be/egrMopDIvPE)?
 
 ## How to use
 
