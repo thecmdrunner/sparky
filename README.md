@@ -25,7 +25,7 @@ Planning to have integration with Home Assistant which allows the operation of m
 ### FreeBSD:
 
 ### On a Virtual Machine
-To use sparky on a Virtual machine, you can use [Scream](https://github.com/duncanthrax/scream) to passthrough your mic via a virtual sound card.
+To use sparky on a Virtual machine, you can use [Scream](https://github.com/duncanthrax/scream) to passthrough your mic via a virtual sound card. Here's a [video tutorial](https://www.youtube.com/watch?v=AfUgNEOx3uk) by Pavol Elsig.
 
 ## How to run?
 
