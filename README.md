@@ -7,13 +7,14 @@ Sparky is an Open source Voice Assistant, alternatives to Google Assistant and A
 Planning to have integration with Home Assistant which allows the operation of many already existing smart home devices.
 
 ## TODO
-- Documentation
+- Documentation, Roadmap
 - Rewrite without legacy stuff
 - Build and package via:
     - Flatpak
     - Snap
     - AppImage?
 - Implement [gTTS alternatives](https://www.youtube.com/watch?v=Ju_X11JyRSE)? Like [Mycroft Mimic 3](https://youtu.be/egrMopDIvPE)?
+- Multiple TTS engines, like switch to Mycroft when offline, and gTTS for when internet is available.
 
 ## How to use
 
