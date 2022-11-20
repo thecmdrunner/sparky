@@ -53,7 +53,7 @@ pip3 install virtualenv
 
 - Documentation, Roadmap
 - Rewrite without legacy stuff, using `virtualenv`
-- Maybe use pre-trained models like in this [video](https://youtu.be/ob0p7G2QoHA)?
+- Maybe use pre-trained models like in this [project](https://github.com/LearnedVector/A-Hackers-AI-Voice-Assistant)? Here's a tutorial [video](https://youtu.be/ob0p7G2QoHA).
 - Build and package via:
   - Flatpak
   - Snap
