@@ -23,7 +23,7 @@ Planning to have integration with Home Assistant which allows the operation of m
 - Library for `espeak`: `libespeak-dev` or `libespeak-ng-dev` or `libespeak1` or `libespeak-ng1`?
   - [Ubuntu](https://packages.ubuntu.com/search?suite=default&section=all&arch=any&keywords=libespeak&searchon=names): `sudo apt install libespeak-ng-dev python3-pyaudio`
   - [Fedora](https://packages.fedoraproject.org/search?query=espeak): `sudo dnf install espeak-ng python3-pyaudio.x86_64`
-  - Arch: `sudo pacman -S espeak-ng`
+  - Arch: `sudo pacman -S espeak-ng python-pyaudio`
 
 ### FreeBSD:
 
@@ -53,6 +53,7 @@ pip3 install virtualenv
 
 - Documentation, Roadmap
 - Rewrite without legacy stuff, using `virtualenv`
+- Maybe use pre-trained models like in this [video](https://youtu.be/ob0p7G2QoHA)?
 - Build and package via:
   - Flatpak
   - Snap

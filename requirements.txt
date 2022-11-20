@@ -1,6 +1,8 @@
 pyttsx3 
 gTTS
 speechRecognition
+speechrecognition
+speech_recognition
 wikipedia 
 PyDictionary
 comtypes
