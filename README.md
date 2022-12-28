@@ -54,7 +54,7 @@ pip3 install virtualenv
 - Documentation, Roadmap
 - Rewrite without legacy stuff, using `virtualenv`
 - Maybe use pre-trained models like in this [project](https://github.com/LearnedVector/A-Hackers-AI-Voice-Assistant)? Here's a tutorial [video](https://youtu.be/ob0p7G2QoHA).
-- Add integration for [Tuxi](https://github.com/Bugswriter/tuxi)?
+- Add integration for ChatGPT API and/or [Tuxi](https://github.com/Bugswriter/tuxi)?
 - Build and package via:
   - Flatpak
   - Snap
