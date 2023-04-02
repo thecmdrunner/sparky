@@ -5,9 +5,11 @@ import datetime
 from time import ctime
 import os
 from playsound import playsound
+import openai
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 doneListening = './audio/done_listening.wav'
-
 
 # Fill your own details
 
@@ -49,23 +51,20 @@ def respond(query):
         if query == 'None':
             return 0
 
-        elif 'time' in query:
-            current_time = get_time()
-            beep()
-            printnsay(current_time)
-
-        elif 'what is my name' in query:
-            beep()
-            printnsay('Your name is '+yourName +
-                      ', and I hope you dont forget it again... haahaa')
-
-        elif 'send an email' in query:
-            sendEmail()
-
         elif ('bye' or 'exit' or 'shut down' or 'shutdown') in query:
             beep()
-            printnsay("Turning off!")
-            exit_alert()
+            print("Turning off!")
+            exit()
+
+        # generate a response using OpenAI ChatGPT API
+        prompt = f"What is your opinion on {query}?"
+        completion = openai.ChatCompletion.create(model="gpt-3.5-turbo",
+                                                  messages=[{
+                                                      "role": "user",
+                                                      "content": prompt
+                                                  }])
+
+        print(completion)
 
     except Exception as e:
         beep()
