@@ -8,7 +8,10 @@ from playsound import playsound
 import openai
 from dotenv import load_dotenv
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+load_dotenv()  # load environment variables from .env file
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = os.environ["OPENAI_API_KEY"]
 
 doneListening = './audio/done_listening.wav'
 
