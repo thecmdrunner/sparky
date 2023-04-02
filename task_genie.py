@@ -6,6 +6,7 @@ from time import ctime
 import os
 from playsound import playsound
 import openai
+from dotenv import load_dotenv
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
